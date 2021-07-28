@@ -110,3 +110,41 @@ def add_user_profile(request):
 
   return render(request, 'all_templates/profile.html', context)
   
+# view function to community page
+@login_required(login_url='login')
+def community(request):
+  '''
+  renders community page
+  '''
+  title = 'join a community'
+
+  context = {
+    'title':title
+  }
+  return render(request, 'all_templates/community.html', context)
+
+#view function for forums page
+@login_required(login_url='login')
+def forums(request):
+  '''
+  renders forum page
+  '''
+  title = 'join a forum'
+
+  context = {
+    'title':title
+  }
+  return render(request, 'all_templates/forums.html', context)
+
+# view function rendering projects page
+@login_required(login_url='login')
+def projects(request):
+  '''
+  renders projects page
+  '''
+  title = 'Open projects - Create yours'
+
+  context = {
+    'title':title
+  }
+  return render(request, 'all_templates/projects.html', context)

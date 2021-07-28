@@ -8,5 +8,8 @@ urlpatterns = [
   url(r'^login_user/$', views.login_user, name = 'login_user'),
   url(r'^logout_user/$', views.logout_user, name = 'logout_user'),
   url(r'^profile/$', views.add_user_profile, name = 'user_profile'),
+  url(r'^community/$', views.community, name = 'community'),
+  url(r'^forums/$', views.forums, name = 'forums'),
+  url(r'^projects/$', views.projects, name = 'projects'),
 
 ]

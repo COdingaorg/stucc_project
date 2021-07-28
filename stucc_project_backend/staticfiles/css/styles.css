@@ -25,6 +25,9 @@ font-family: 'Nunito', sans-serif;*/
   font-family: 'Lobster', cursive;
   color: var(--green);
 }
+a:active, a:hover{   
+  background-color: var(--green);  
+}
 body{
   background-color: var(--light_green) ;
   font-family: 'Nunito', sans-serif;

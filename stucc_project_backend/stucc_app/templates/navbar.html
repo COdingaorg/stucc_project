@@ -14,10 +14,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav d-flex align-items-center justify-c0ntent-center">
-      <a class="nav-item nav-link active" href="home">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#weather">Communities</a>
-      <a class="nav-item nav-link" href="#post_loop">Forums</a>
-      <a class="nav-item nav-link" href="#post_loop">Projects</a>
+      <a class="nav-item nav-link active" href="home">Home</a>
+      <a class="nav-item nav-link active" href="{% url 'community' %}">Communities </a>
+      <a class="nav-item nav-link active" href="{% url 'forums' %}">Forums</a>
+      <a class="nav-item nav-link active" href="{% url 'projects' %}">Projects</a>
 
       <img src="{% if user_profile %}{{user_profile.photo_path.url}}{%else%}../../../static/images/human-avatar-profle.png{%endif%}" alt="" class="ml-5 mr-5" width="30px" height="30px" style="background-color: white; border-radius: 50%;">
       {% if request.user.is_authenticated %}
