@@ -31,6 +31,7 @@ DEBUG = config('DEBUG')
 # Application definition
 
 INSTALLED_APPS = [
+    'stucc_app.apps.StuccAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
