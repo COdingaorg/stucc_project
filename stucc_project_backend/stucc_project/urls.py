@@ -21,6 +21,7 @@ from stucc_app import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
+router.register(r'user_profile', views.UserProfileViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

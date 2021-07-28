@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, User_profile
+from .models import User, UserProfile
 
 class UserSerializer(serializers.ModelSerializer):
   '''
@@ -28,8 +28,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 class UserProfileSerializer(serializers.ModelSerializer):
   class Meta:
-    model = User_profile
+    model = UserProfile
     fields = ('bio', 'photo_path', 'career')
-    
+
     
 
