@@ -9,3 +9,5 @@ class UserProfile(models.Model):
   photo_path = models.ImageField(upload_to = 'profiles')
   user = models.ForeignKey(User, on_delete=CASCADE)
   career = models.CharField(max_length=100)
+
+#community

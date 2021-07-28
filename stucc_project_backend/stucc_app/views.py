@@ -11,6 +11,7 @@ class UserViewSet(viewsets.ModelViewSet):
   '''
   queryset = User.objects.all().order_by('-last_login')
   serializer_class = UserSerializer
+  
   # permission_classes = [permissions.IsAuthenticated]
 
 #user profile viewset
