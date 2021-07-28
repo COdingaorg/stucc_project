@@ -61,18 +61,22 @@ def login_user(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
     newlogin =  authenticate(request, username = username, password = password)
-
-    if newlogin is not None:
+    if newlogin:
       login(request, newlogin)
 
-      return redirect('/')
+      messages.success(request, 'Login successful. Add Profile to proceed')
+      return redirect('user_profile')
+
     else:
       messages.warning(request, 'Incorrect Username or Password')
+      return redirect('login_user')
+  
   
   context = {
     'title':title,
     'form':form,
-  }
+    }
+
   return render(request, 'registration/login.html', context)
 
 #logout view function
@@ -94,7 +98,7 @@ def index(request):
     'title':title
   }
 
-  return render(request, 'all_templates/indes.html', context)
+  return render(request, 'all_templates/index.html', context)
 
 @login_required(login_url='login')
 def add_user_profile(request):

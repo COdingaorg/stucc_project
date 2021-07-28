@@ -2,6 +2,7 @@
 {% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,41 +24,19 @@
   {% block content %}
   <div class="container" id="container">
     <div class="form-container sign-in-container">
-      <form action="{% url 'login_user'%}" method="POST">
+      <form action="#" method="POST">
         {%csrf_token%}
         <h1>Sign in</h1>
         {% for message in messages%}
-        <p class="alert-info text-center">{{message}}</p>
+        <p class="alert-danger text-center p-2">{{message}}</p>
         {%endfor%}
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <span>or use your account</span>
-        <span>Username</span><input type="username" name="username" placeholder="username" />
-        <span>Password</span><input type="password" name="password" placeholder="Password" />
-        <a href="#">Forgot your password?</a>
-        <button type="submit">Sign In</button>
-        <a href="{% url 'register_user'%}">Create Account</a>
-      </form>
-    </div>
-    <div class="form-container sign-in-container">
-      <form action="{% url 'login'%}" method="POST">
-        {%csrf_token%}
-        <h1>Sign in</h1>
-        {% for message in messages%}
-        <p class="alert-info text-center">{{message}}</p>
+        {% for error in form_buss.errors%}
+        <div class="alert alert-danger">{{error}}</div>
         {%endfor%}
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+        
         <span>Use your account details</span>
         <br>
-        <span>Username</span><input type="username" name = "username" placeholder="username" />
-        <span>Password</span><input type="password" name = "password" placeholder="Password" />
+        {{form.as_p}}
         <a href="#">Forgot your password?</a>
         <button type="submit">Sign In</button>
         <a href="{% url 'register_user'%}">Create Account</a>
@@ -69,7 +48,7 @@
           <h1>New Updates Available!</h1>
           <p>To keep connected with us please login with your personal info</p>
           <h5>Don't have an Account? <a href="{% url 'register_user' %}">Create Account</a></h5>
-          
+
         </div>
       </div>
     </div>
