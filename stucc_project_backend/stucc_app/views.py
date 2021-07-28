@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from .models import User, UserProfile
 from rest_framework import viewsets
 from stucc_app.serializers import UserProfileSerializer, UserSerializer
-from django.contrib.auth import login, logout, 
+from django.contrib.auth import login, logout, authenticate
+from .forms import RegisterUserForm, LoginForm
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
@@ -30,13 +34,16 @@ def register_user(request):
   if request.method == 'POST':
     form = RegisterUserForm(request.POST)
     if form.is_valid():
-      logger = form.save()
-      newlogin =  authenticate(request, username = logger.username, password = logger.password)
+      uname = form.cleaned_data['username']
+      password = form.cleaned_data['password2']
+      form.save()
+      newlogin =  authenticate(request, username = uname, password = password)
 
-      if newlogin is not None:
+      if newlogin:
         login(request, newlogin)
 
-        return redirect('/')
+        messages.success(request, 'Account Created successfully. Add Profile')
+        return redirect('user_profile')
 
       return redirect('login_user')
       
@@ -78,4 +85,14 @@ def logout_user(request):
 
   return redirect('login_user')
 #view function to user profile
+
+@login_required(login_url='login')
+def index(request):
+  title = 'Welcome to StucC'
+
+  context = {
+    'title':title
+  }
+
+  return render(request, 'all_templates/indes.html', context)
   

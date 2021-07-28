@@ -26,7 +26,8 @@ router.register(r'user_profile', views.UserProfileViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('api-auth', include('rest_framework.urls', namespace = 'rest_framework')),
     path('', include('stucc_app.urls')),
+    path('api', include(router.urls)),
+    path('api-auth', include('rest_framework.urls', namespace = 'rest_framework')),
+    
 ]
