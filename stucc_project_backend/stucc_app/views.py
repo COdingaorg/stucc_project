@@ -22,4 +22,3 @@ class UserProfileViewSet(viewsets.ModelViewSet):
   queryset = UserProfile.objects.all().order_by('-id')
   serializer_class = UserProfileSerializer
   
-
