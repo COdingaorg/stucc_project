@@ -1,0 +1,81 @@
+{% load static %}
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%if title%}
+  <title>{{title}}</title>
+  {%else%}
+  <title>Login Page</title>
+  {%endif%}
+
+  {%block styles%}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/login_styles.css'%}">
+  {%endblock%}
+</head>
+
+<body>
+  <h1 class="text-center mt-5 title_app">StucC</h1>
+  {% block content %}
+  <div class="container" id="container">
+    <div class="form-container sign-in-container">
+      <form action="#" method="POST" class="p-4">
+        {%csrf_token%}
+        {{forms.errors}}
+        <h2>Create Account</h2>
+        <h5>Enter Correct Details</h5>
+        <!--forms from views-->
+        <span class="former">{{form.username}}</span>
+        <span class="former">{{form.first_name}}</span>
+        <span class="former">{{form.last_name}}</span>
+        <span class="former">{{form.email}}</span>
+        <span class="former">{{form.password1}}</span>
+        <span class="former">{{form.password2}}</span>
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right  ">
+          <h1>Hello, Welcome to StucC</h1>
+          <p class="p-0">An online <strong>Collaboration</strong> platform that helps you get the right pattners for your project.<br>
+            <strong>Get</strong> Tasks done the right way, Easy way. Ask, get Do</p>
+          
+          <h4>Already have an Account? <strong><a href="{% url 'login_user'%}">Log in</a></h4></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endblock%}
+
+  {%block scripts%}
+  <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+      container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+      container.classList.remove("right-panel-active");
+    });
+  </script>
+
+  {%endblock%}
+
+</body>
+
+</html>

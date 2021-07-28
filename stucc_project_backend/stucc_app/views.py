@@ -51,7 +51,7 @@ def register_user(request):
     'form':form,
     'title':title
   }
-  return render(request, 'django_registration/registration_form.html', context)
+  return render(request, 'register_login.html', context)
 
 #login user
 def login_user(request):
@@ -95,4 +95,14 @@ def index(request):
   }
 
   return render(request, 'all_templates/indes.html', context)
+
+@login_required(login_url='login')
+def add_user_profile(request):
+  title = f'{request.user.username}'
+
+  context = {
+    'title':title
+  }
+
+  return render(request, 'all_templates/profile.html', context)
   

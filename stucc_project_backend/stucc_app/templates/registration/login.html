@@ -1,0 +1,80 @@
+{% load static %}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%if title%}
+  <title>{{title}}</title>
+  {%else%}
+  <title>Login Page</title>
+  {%endif%}
+
+  {%block styles%}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/login_styles.css'%}">
+  {%endblock%}
+</head>
+
+<body>
+  <h1 class="text-center">Movie Slack</h1>
+  {% block content %}
+  <div class="container" id="container">
+    <div class="form-container sign-in-container">
+      <form action="{% url 'login_user'%}" method="POST">
+        {%csrf_token%}
+        <h1>Sign in</h1>
+        {% for message in messages%}
+        <p class="alert-info text-center">{{message}}</p>
+        {%endfor%}
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your account</span>
+        <span>Username</span><input type="username" name="username" placeholder="username" />
+        <span>Password</span><input type="password" name="password" placeholder="Password" />
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+        <a href="{% url 'register_user'%}">Create Account</a>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form action="{% url 'login'%}" method="POST">
+        {%csrf_token%}
+        <h1>Sign in</h1>
+        {% for message in messages%}
+        <p class="alert-info text-center">{{message}}</p>
+        {%endfor%}
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>Use your account details</span>
+        <br>
+        <span>Username</span><input type="username" name = "username" placeholder="username" />
+        <span>Password</span><input type="password" name = "password" placeholder="Password" />
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+        <a href="{% url 'register_user'%}">Create Account</a>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-right">
+          <h1>New Updates Available!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <h5>Don't have an Account? <a href="{% url 'register_user' %}">Create Account</a></h5>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endblock%}
+</body>
+
+</html>
