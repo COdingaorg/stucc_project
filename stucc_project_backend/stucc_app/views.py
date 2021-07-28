@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User, UserProfile
 from rest_framework import viewsets
-from rest_framework import permissions
 from stucc_app.serializers import UserProfileSerializer, UserSerializer
+from django.contrib.auth import login, logout, 
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
@@ -21,4 +21,61 @@ class UserProfileViewSet(viewsets.ModelViewSet):
   '''
   queryset = UserProfile.objects.all().order_by('-id')
   serializer_class = UserProfileSerializer
+
+
+#register User
+def register_user(request):
+  title = 'create account'
+  form = RegisterUserForm
+  if request.method == 'POST':
+    form = RegisterUserForm(request.POST)
+    if form.is_valid():
+      logger = form.save()
+      newlogin =  authenticate(request, username = logger.username, password = logger.password)
+
+      if newlogin is not None:
+        login(request, newlogin)
+
+        return redirect('/')
+
+      return redirect('login_user')
+      
+  context = {
+    'form':form,
+    'title':title
+  }
+  return render(request, 'django_registration/registration_form.html', context)
+
+#login user
+def login_user(request):
+  title = 'Login to Your Account'
+  form = LoginForm
+  if request.method == 'POST':
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    newlogin =  authenticate(request, username = username, password = password)
+
+    if newlogin is not None:
+      login(request, newlogin)
+
+      return redirect('/')
+    else:
+      messages.warning(request, 'Incorrect Username or Password')
+  
+  context = {
+    'title':title,
+    'form':form,
+  }
+  return render(request, 'registration/login.html', context)
+
+#logout view function
+@login_required(login_url='login')
+def logout_user(request):
+  '''
+  logout a logged in user
+  '''
+  logout(request)
+
+  return redirect('login_user')
+#view function to user profile
   
