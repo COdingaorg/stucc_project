@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from django.contrib.auth.models import UserManager
+from .models import User
 
-class UserSerializer(serializers.Serializer):
+class UserSerializer(serializers.ModelSerializer):
   '''
   user model serializer, model has been imported from django auth models
   '''
@@ -22,4 +22,8 @@ class UserSerializer(serializers.Serializer):
   is_staff = serializers.BooleanField()
   is_active = serializers.BooleanField()
   
+  class Meta:
+    model = User
+    fields = ['id', 'username', 'first_name', 'last_name', 'email', 'password', 'last_login', 'date_joined', 'is_superuser', 'is_staff', 'is_active']
+    
 
