@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from models import User
+from .models import User
 from rest_framework import viewsets
 from rest_framework import permissions
 from stucc_app.serializers import UserSerializer

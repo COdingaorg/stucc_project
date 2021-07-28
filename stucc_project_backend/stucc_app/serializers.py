@@ -6,8 +6,8 @@ class UserSerializer(serializers.ModelSerializer):
   user model serializer, model has been imported from django auth models
   '''
   id = serializers.IntegerField(read_only = True)
-  username = serializers.CharField(required = True, max_lenght = 30)
-  first_name = serializers.CharField(required = True, max_lenght = 15)
+  username = serializers.CharField(required = True, max_length = 30)
+  first_name = serializers.CharField(required = True, max_length = 15)
   last_name = serializers.CharField(required = True, max_length = 20)
   email = serializers.EmailField()
   password = serializers.CharField(
