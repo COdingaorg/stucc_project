@@ -1,30 +1,33 @@
 /* css contant variables */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:wght@300&display=swap');
 /*font-family: 'Dancing Script', cursive;
-font-family: 'Montserrat', sans-serif;*/
+font-family: 'Nunito', sans-serif;*/
 
 /* Color Theme Swatches in RGBA */
 :root{
---blue:rgba(3,137,201, .5);  
---light_blue: rgba(96, 152, 165, 1);
---backg:rgba(105, 193, 211, 0.1);
---light_yellow: rgba(242, 204, 133, 1);
---yellow : rgba(242, 153, 75, 1);
---bright : rgba(216, 84, 84, 1);
---less_bright: rgba(242, 135, 135, 1);
+--green:rgb(56,165,121);
+--lighter_green: rgba(57,166,120, .4);
+--backg:rgba(208,250,236, .4);
+--light_green: rgba(208,250,236, .2);
+--purple : rgb(87,107,223);
+--dark : rgb(30,29,45);
+--less_bright: rgba(255, 255, 255, 0.3);
 }
 *{
   box-sizing: border-box;
-}
+  border-radius: 6px;
+  border-color: var(--lighter_green);
+} 
 /*styling navbar */
 .navbar-brand{
   font-size: 2em;
   font-weight: 400;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Lobster', cursive;
+  color: var(--green);
 }
 body{
-  background-color: var(--backg) ;
-  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light_green) ;
+  font-family: 'Nunito', sans-serif;
   font-size: 1.4em;
   width: 100vw;
   overflow-x: hidden;
@@ -34,7 +37,7 @@ h5,h4, .bold{
   font-weight: bold;
 }
 .navbar{
-  background-color: var(--blue);
+  background-color: rgb(30,29,45);
   color: white;
   font-weight: 600;
   font-size: 1.2em;
@@ -77,8 +80,14 @@ h5,h4, .bold{
   padding: 0;
   height: 100%;
 }
+.default{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--dark);
+}
 .card-footer{
-  background-color: rgba(242, 153, 75, .6);
   backdrop-filter: blur(4px);
   color: white;
   max-height: 100%;
@@ -91,7 +100,8 @@ h5,h4, .bold{
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: var(--less_bright);
+  border-color: rgba(255, 255, 255, .8);
   padding: 10px;
   margin: 0;
 
@@ -101,7 +111,8 @@ h5,h4, .bold{
   justify-content: space-evenly;
 }
 .formbuss{
-  background-color: var(--blue);
+  background-color: var(--green);
+  opacity: .8;
   color: white;
   min-width: 160px;
 }
@@ -220,6 +231,12 @@ span.post_image>img{
   height: auto;
 
 }
+.btn_control{
+  background-color: white;
+}
+.btn_control>p{
+  color: var(--green);
+}
 .title_profile{
   background-color: white;
   padding: 5px;
@@ -238,14 +255,14 @@ span.post_image>img{
   margin-top: 10px;
   height: 200px;
   width: 100%;
-  border: 2px solid rgba(255, 230, 0, .2);
-  background-color: rgba(255, 230, 0, .1);
+  border: 2px solid var(--lighter_green);
+  background-color: var(--backg);
 }
 .main_page{
-  background-color: rgba(128, 128, 128, .6);
+  background-color: rgba(179, 179, 179, .2);
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 6px;
 }
 .image_profile{
   background-color: white;
@@ -281,18 +298,18 @@ span.post_image>img{
   width: auto;
   height: 30px;
   margin: 5px;
-  border: 1px solid rgb(255, 230, 0);
+  border: 1px solid var(--lighter_green);
   color: black;
 }
 .redir{
-  border: 1px solid rgb(255, 230, 0);
+  border: 1px solid var(--lighter_green);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   padding: 5px;
-  background-color: rgba(255, 230, 0, .1);
+  background-color: var(--backg);
 }
 svg#chart{
   background-color: black;

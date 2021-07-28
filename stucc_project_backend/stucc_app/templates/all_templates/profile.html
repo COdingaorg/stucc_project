@@ -10,7 +10,7 @@
   {% if title %}
   <title>{{title}}</title>
   {%else%}
-  <title>Netflic Clone</title>
+  <title>StucC</title>
   {%endif%}
   {% block styles %}
   {%bootstrap_css%}
@@ -62,23 +62,23 @@
         </strong>
         {%endif%}
         <div class="redir m-3">
-          <a href="home" class="btn btn-warning redirect_btn col-md-8">
-            <p class="badge badge-success p-auto">Dashboard</p>
+          <a href="home" class="btn btn_control redirect_btn col-md-8">
+            <p class="p-auto">Dashboard</p>
           </a>
 
-          <a href="home" class="btn btn-warning redirect_btn col-md-8">
-            <p class="badge badge-success p-auto">To Watch</p>
+          <a href="home" class="btn btn_control redirect_btn col-md-8">
+            <p class="p-auto">To Watch</p>
           </a>
-          <a href="home" class="btn btn-warning redirect_btn col-md-8">
-            <p class="badge badge-success p-auto">Home</p>
+          <a href="home" class="btn btn_control redirect_btn col-md-8">
+            <p class="p-auto">Home</p>
           </a>
-          <a href="home" class="btn btn-warning redirect_btn col-md-8">
-            <p class="badge badge-success p-auto">Playlist</p>
+          <a href="home" class="btn btn_control redirect_btn col-md-8">
+            <p class="p-auto">Playlist</p>
           </a>
 
         </div>
 
-        <a href="{% url 'logout_user' %}" class="border border-warning redirect_btn p-2">
+        <a href="{% url 'logout_user' %}" class="border bo btn_control redirect_btn p-2">
           <p>Logout</p>
         </a>
 
@@ -92,12 +92,12 @@
           </div>
           {%endfor%}
           <div class="col-md-8">
-            <h3>Netflic Account - {{request.user.username}}</h3>
+            <h3>StucC Account - {{request.user.username}}</h3>
             <i>{% if user_profile %} {{user_profile.tagline}} {%else%} 'No Taglines Added'{%endif%}</i>
           </div>
           <div class="col-md-3 d-flex flex-row">
-            <a href="#" class="btn btn-warning redirect_btn col-md-8">
-              <p class="badge badge-success p-auto">Settings</p>
+            <a href="#" class="btn btn_control redirect_btn col-md-8">
+              <p class="p-auto">Settings</p>
             </a>
 
             <a href="home"><button class="btn btn-default">Home</button></a>
@@ -180,7 +180,7 @@
             </button>
           </div>
           {% for message in messages%}
-          <div class="alert alert-warning">
+          <div class="alert a btn_control">
             {{message}}
           </div>
           {%endfor%}

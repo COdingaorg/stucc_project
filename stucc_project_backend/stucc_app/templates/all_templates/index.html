@@ -4,50 +4,13 @@
 
 {% block content %}
 <div class="index_page row">
-  <div class="col-md-1 left_bar">
-    <a href="#post_loop">
-      <div class="icon">
-        <img src="../../static/images/posts.png" alt="feed">
-        <h6 class="text-center bold">Posts</h6>
-      </div>
-    </a>
-    <a href="#hospital">
-      <div class="icon">
-        <img src="../../static/images/health_icon.png" alt="health">
-        <h6 class="text-center bold">Health Centers</h6>
-      </div>
-    </a>
-    <a href="#police">
-      <div class="icon">
-        <img src="../../static/images/police.png" alt="police">
-        <h6 class="text-center bold">Police Stations</h6>
-      </div>
-      <a href="#business">
-        <div class="icon">
-          <img src="../../static/images/shop.jpg" alt="business">
-          <h6 class="text-center bold">Business</h6>
-        </div>
-      </a>
-      <a href="#members">
-        <div class="icon">
-          <img src="../../static/images/user_groups.png" alt="members">
-          <h6 class="text-center bold">Members</h6>
-        </div>
-      </a>
-      <a href="#weather">
-        <div class="icon">
-          <img src="../../static/images/weather.png" alt="weather">
-          <h6 class="text-center bold">Weather</h6>
-        </div>
-      </a>
-  </div>
-  <div class="business_loop col-md-9">
+  <div class="business_loop col-md-10">
     <div class="area_business col-md-12">
       <!--add business form-->
       <div class="card formbuss col-md-2 p-0 m-1" style="display: flex; align-items: center; justify-content: center;">
         <div class="card-image">
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModalLong">
             <span style="font-size: 4em;">&plus;</span><br> Add A Business
           </button>
         </div>
@@ -71,7 +34,7 @@
       </div>
       {%endfor%}
       {%else%}
-      <h3 class="text_center">No Businesses Added</h3>
+      <h3 class="text_center default">No Businesses Added</h3>
       {%endif%}
       <!--End of business loops-->
     </div>
@@ -255,7 +218,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default">Save changes</button>
       </div>
     </div>
   </div>
