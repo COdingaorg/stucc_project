@@ -10,6 +10,7 @@ font-family: 'Nunito', sans-serif;*/
 --backg:rgba(208,250,236, .4);
 --light_green: rgba(208,250,236, .2);
 --purple : rgb(87,107,223);
+--pink: rgb(253,239,248);
 --dark : rgb(30,29,45);
 --less_bright: rgba(255, 255, 255, 0.3);
 }
@@ -342,6 +343,42 @@ svg#chart{
   width:40px;
   font-size: .6em;
   padding: 1px;
+}
+/*styling communty page */
+.writings, .circle_bg{
+  max-height: 80vh;
+  height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.writings{
+  padding-left: 10vw;
+}
+.circle_bg{
+  border: 1px solid var(--purple);
+  margin-top: -10vh;
+  z-index: -1;
+  background-color: var(--pink);
+  clip-path: circle(50% at 50% 50%);
+  margin-right: -5vw;
+  overflow: show;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+}
+.trending_comm{
+  z-index: 2;
+  background-color: rgba(255, 255, 255, .7);
+  justify-content: flex-end;
+  inset: 20px;
+  border: 1px solid purple;
+  margin-bottom: 20px;
+  padding: 20px;
+  stroke-width: 10px;
+  stroke: 5px solid white;
+  box-shadow: 1px 1px 4px 3px rgba(128, 0, 128, .2);
 }
 /*styling for smaller screens*/
 @media screen and (max-width:768px) {

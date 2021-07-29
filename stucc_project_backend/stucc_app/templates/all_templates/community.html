@@ -1,4 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content%}
+<div class="community row">
+  <div class="col-md-6 writings">
+    <h2 class="mb-5">
+      We are One. <br>
+      Find a community of your Interest. <br>
+      Make a <strong>BIG DEAL</strong> of it.
+    </h2>
+    <h5 class="mt-2">Be a part of something Big and Better</h5>
+  </div>
+  <div class="col-md-6 circle_bg">
+  </div>
+  <div class="col-md-6 trending_comm">
+    <p>Most Active Community</p>
+  </div>
+  <div class="col-md-12">
+    <!-- loop communties here-->
+    <div class="card col-md-4 row">
+      <div class="card-title">
+        <h3 class="bold">Community Name</h3>
+      </div>
+      <div class="card-body">
+        <p class="text-left">community description .
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut eaque,
+          nesciunt sequi accusamus laborum ipsum explicabo! Quos, molestiae, obcaecati
+          repudiandae in suscipit nesciunt, magni doloremque voluptates nam nihil cum nobis.</p>
+      </div>
+      <div class="card-footer d-flex flex-row align-items-center justify-content-center">
+        <p class="btn btn-default">Join community</p>
+        <strong class="badge badge-light">3232 members</strong>
+        <p>posts count</p>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 {%endblock%}
